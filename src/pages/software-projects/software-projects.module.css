@@ -1,0 +1,28 @@
+.projects {
+}
+
+.project {
+  display: flex;
+}
+
+.summary {
+  flex: 6;
+}
+
+.codeLink {
+  flex: 1;
+}
+
+.githubIcon {
+  font-size: 1rem;
+  color: grey;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.actions {
+  padding: 10px 0;
+}
+.actions > * {
+  margin-right: 10px;
+}
