@@ -62,7 +62,7 @@ export const AllGithubProjects = () => {
           Next Page
         </Button>
         <Button>
-          <Link to="software-projects">Featured Projects</Link>
+          <Link to="/software-projects">Featured Projects</Link>
         </Button>
       </Container>
     </Container>

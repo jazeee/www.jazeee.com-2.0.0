@@ -16,7 +16,7 @@ export const SoftwareProjects = () => (
     })}
     <Container className={styles.actions}>
       <Button variant="contained">
-        <Link to="software-projects/all-github-projects">
+        <Link to="/software-projects/all-github-projects">
           All Github Projects
         </Link>
       </Button>

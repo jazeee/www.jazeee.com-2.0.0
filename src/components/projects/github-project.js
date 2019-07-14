@@ -1,29 +1,27 @@
 import React from "react";
 import styles from "./github-project.module.css";
 import Typography from "@material-ui/core/Typography";
-import Link from "@material-ui/core/Link";
-import { GitHubIcon } from "../github-icon";
+import { TargetBlankLink } from "../target-blank-link";
+import { GithubIcon } from "../icons/github-icon";
 
 export const GithubProject = props => {
   const { project } = props;
   return (
     <div className={styles.project}>
       <Typography className={styles.summary}>
-        <Link color="secondary" href={project.url}>
+        <TargetBlankLink color="secondary" href={project.url}>
           {project.name}
-        </Link>{" "}
+        </TargetBlankLink>{" "}
         - {project.description}
       </Typography>
       <Typography className={styles.codeLink}>
-        <Link
+        <TargetBlankLink
           color="secondary"
           href={`https://github.com/${project.githubFullName}`}
-          target="_blank"
-          rel="noopener noreferrer"
         >
-          <GitHubIcon className={styles.githubIcon} />
+          <GithubIcon className={styles.GithubIcon} />
           Github
-        </Link>
+        </TargetBlankLink>
       </Typography>
     </div>
   );

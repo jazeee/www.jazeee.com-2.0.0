@@ -3,11 +3,13 @@ import React from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import { makeStyles } from "@material-ui/core/styles";
-import { Link } from "../components/link";
+import { Link } from "./link";
+import { TargetBlankLink } from "./target-blank-link";
+import { GithubIcon } from "./icons/github-icon";
+import { LinkedInIcon } from "./icons/linked-in-icon";
 
 import { HideOnScroll } from "./hide-on-scroll";
 
@@ -20,6 +22,9 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     flexGrow: 1,
+  },
+  social: {
+    marginLeft: theme.spacing(1),
   },
 }));
 
@@ -44,7 +49,22 @@ export const Header = props => {
                 {siteTitle}
               </Link>
             </Typography>
-            <Button color="inherit">Login</Button>
+            <Typography variant="h6" className={classes.social}>
+              <TargetBlankLink
+                color="secondary"
+                href="http://www.linkedin.com/in/jazeee"
+              >
+                <LinkedInIcon />
+              </TargetBlankLink>
+            </Typography>
+            <Typography variant="h6" className={classes.social}>
+              <TargetBlankLink
+                color="secondary"
+                href="https://github.com/jazeee"
+              >
+                <GithubIcon />
+              </TargetBlankLink>
+            </Typography>
           </Toolbar>
         </AppBar>
       </HideOnScroll>
