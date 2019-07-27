@@ -3,6 +3,7 @@ import { Layout } from "../../components/layout";
 import { SEO } from "../../components/seo";
 import Container from "@material-ui/core/Container";
 import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
 import styles from "./software-projects.module.css";
 import { GithubProject } from "../../components/projects/github-project";
 import { Link } from "../../components/link";
@@ -11,38 +12,50 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 export const AllGithubProjects = () => {
   const [projects, setProjects] = useState([]);
   const [page, setPage] = useState(1);
+  const [status, setStatus] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     let isCurrentRequest = true;
     const getProjects = async () => {
+      setProjects([]);
+      setStatus("");
       setIsLoading(true);
-      const response = await fetch(
-        `https://api.github.com/users/jazeee/repos?sort=updated&page=${page}`
-      );
-      if (response.ok) {
-        const githubData = await response.json();
-        if (isCurrentRequest) {
-          const projects = githubData.map(datum => {
-            const { name, description, full_name, html_url } = datum;
-            return {
-              name,
-              description: description || "-",
-              url: html_url,
-              githubFullName: full_name,
-            };
-          });
-          setProjects(projects);
-          setIsLoading(false);
+      try {
+        const response = await fetch(
+          `https://api.github.com/users/jazeee/repos?sort=updated&page=${page}`
+        );
+        if (response.ok) {
+          const githubData = await response.json();
+          if (isCurrentRequest) {
+            const projects = githubData.map(datum => {
+              const { name, description, full_name, html_url } = datum;
+              return {
+                name,
+                description: description || "-",
+                url: html_url,
+                githubFullName: full_name,
+              };
+            });
+            setProjects(projects);
+            setIsLoading(false);
+          }
+        } else {
+          throw new Error(`${response.status} - Bad response.`);
         }
+      } catch (error) {
+        setStatus(`Error retrieving data: ${error}`);
+        console.log(error);
+        setIsLoading(false);
       }
     };
     getProjects();
     return () => (isCurrentRequest = false);
-  }, [setProjects, setIsLoading, page]);
+  }, [setProjects, setIsLoading, page, setStatus]);
   return (
     <Container className={styles.projects}>
       <h1 className={styles.header}>All Github Projects</h1>
       {isLoading && <CircularProgress />}
+      {status && <Typography variant="h4">{status}</Typography>}
       {projects.map(project => {
         return <GithubProject key={project.name} project={project} />;
       })}

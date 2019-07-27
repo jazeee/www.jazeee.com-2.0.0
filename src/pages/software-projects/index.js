@@ -8,6 +8,10 @@ import { Link } from "../../components/link";
 import { Layout } from "../../components/layout";
 import { SEO } from "../../components/seo";
 
+const AllGithubProjectLinks = React.forwardRef((props, ref) => (
+  <Link innerRef={ref} {...props} />
+));
+
 export const SoftwareProjects = () => (
   <Container className={styles.projects}>
     <h1 className={styles.header}>Software Projects</h1>
@@ -15,10 +19,12 @@ export const SoftwareProjects = () => (
       return <GithubProject key={project.name} project={project} />;
     })}
     <Container className={styles.actions}>
-      <Button variant="contained">
-        <Link to="/software-projects/all-github-projects">
-          All Github Projects
-        </Link>
+      <Button
+        variant="contained"
+        component={AllGithubProjectLinks}
+        to="/software-projects/all-github-projects"
+      >
+        All Github Projects
       </Button>
     </Container>
   </Container>
