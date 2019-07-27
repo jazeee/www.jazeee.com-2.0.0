@@ -5,6 +5,7 @@ import { SEO } from "../components/seo";
 import { Skills } from "./skills";
 import { SoftwareProjects } from "./software-projects";
 import { Presentations } from "./presentations";
+import { Publications } from "./publications";
 
 const IndexPage = () => (
   <Layout>
@@ -12,6 +13,7 @@ const IndexPage = () => (
     <Skills />
     <SoftwareProjects />
     <Presentations />
+    <Publications />
   </Layout>
 );
 
