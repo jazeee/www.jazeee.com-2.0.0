@@ -12,7 +12,7 @@ export const Skills = () => (
   <div className={styles.aboutJaz}>
     <div className={styles.container}>
       <div className={styles.skillsHeaderOverlay}>
-        <h1> Full Stack Web Developer</h1>
+        <h1>Full Stack Web Developer</h1>
         <h4>Primary Developer Skills (Sorted by skill level)</h4>
         <ul>
           {webAppSkillNames.map(skillName => (
