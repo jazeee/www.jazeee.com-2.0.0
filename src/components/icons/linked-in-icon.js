@@ -2,6 +2,7 @@
 
 import React from "react";
 import SvgIcon from "@material-ui/core/SvgIcon";
+// Based on https://materialdesignicons.com/
 
 export function LinkedInIcon(props) {
   return (

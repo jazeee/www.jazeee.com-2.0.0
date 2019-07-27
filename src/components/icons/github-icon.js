@@ -3,6 +3,8 @@
 import React from "react";
 import SvgIcon from "@material-ui/core/SvgIcon";
 
+// Based on https://materialdesignicons.com/
+
 export function GithubIcon(props) {
   return (
     <SvgIcon fontSize="inherit" {...props}>
