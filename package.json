@@ -21,10 +21,12 @@
     "gatsby-source-filesystem": "^2.1.2",
     "gatsby-transformer-sharp": "^2.2.1",
     "lodash": "^4.17.11",
+    "plotly.js": "^1.49.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
+    "react-plotly.js": "^2.3.0",
     "styled-components": "^4.3.2"
   },
   "devDependencies": {

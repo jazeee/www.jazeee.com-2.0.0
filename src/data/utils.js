@@ -48,7 +48,7 @@ export class Skills {
   getSkillData = skillType => {
     let skillData = SKILL_DATA;
     if (skillType != null) {
-      skillData = _.pick(skillData, function(skill) {
+      skillData = _.pickBy(skillData, function(skill) {
         return skill.type === skillType;
       });
     }

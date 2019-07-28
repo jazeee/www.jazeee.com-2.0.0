@@ -4,4 +4,18 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-// You can delete this file if you're not using it
+// From: https://elcess.us/Integrating-Plotly-with-Gatsby/
+exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+  if (stage === "build-html") {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /plotly.js/,
+            use: loaders.null(),
+          },
+        ],
+      },
+    });
+  }
+};
