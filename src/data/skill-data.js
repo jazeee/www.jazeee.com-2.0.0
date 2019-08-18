@@ -1,37 +1,23 @@
-export const SKILL_DATA = {
-  JavaScript: {
+const SKILL_DATA_WITH_GAPS = {
+  "JavaScript/ES6+": {
     type: "Language",
     experience: {
       2005: 0,
       2007: 10,
       2008: 15,
-      2009: 15,
-      2010: 15,
       2011: 20,
       2012: 30,
       2013: 60,
       2014: 85,
       2015: 90,
-      2016: 90,
-      2017: 90,
-      2018: 90,
+      // 2016: 90,
+      // // 2017: 90,
+      // 2018: 90,
       2019: 90,
     },
     domains: ["WebApp", "Server", "Software Engineering"],
     scoreWeight: 3,
-  },
-  "ES6+": {
-    type: "Language",
-    experience: {
-      2014: 0,
-      2015: 30,
-      2016: 40,
-      2017: 80,
-      2018: 90,
-      2019: 90,
-    },
-    domains: ["WebApp", "Server", "Software Engineering"],
-    scoreWeight: 2,
+    isCurrentSkill: true,
   },
   CoffeeScript: {
     type: "Language",
@@ -40,8 +26,9 @@ export const SKILL_DATA = {
       2013: 60,
       2014: 85,
       2015: 95,
-      2016: 95,
-      2017: 0,
+      2016: 80,
+      2017: 60,
+      2018: 0,
     },
     domains: ["WebApp", "Server", "Software Engineering"],
     scoreWeight: 1,
@@ -59,6 +46,7 @@ export const SKILL_DATA = {
     },
     domains: ["WebApp", "Server", "Software Engineering"],
     scoreWeight: 1.5,
+    isCurrentSkill: true,
   },
   "Node.js": {
     type: "Platform",
@@ -69,12 +57,13 @@ export const SKILL_DATA = {
       2014: 40,
       2015: 60,
       2016: 75,
-      2017: 75,
+      // 2017: 75,
       2018: 75,
       2019: 85,
     },
     domains: ["WebApp", "Server", "Software Engineering"],
     scoreWeight: 2,
+    isCurrentSkill: true,
   },
   React: {
     type: "Platform",
@@ -88,6 +77,7 @@ export const SKILL_DATA = {
     },
     domains: ["WebApp", "Software Engineering"],
     scoreWeight: 2,
+    isCurrentSkill: true,
   },
   "AngularJS 1.5": {
     type: "Platform",
@@ -134,6 +124,7 @@ export const SKILL_DATA = {
       2019: 80,
     },
     domains: ["WebApp", "Software Engineering"],
+    isCurrentSkill: true,
   },
   "D3.js": {
     type: "Platform",
@@ -149,6 +140,7 @@ export const SKILL_DATA = {
     },
     domains: ["WebApp", "Software Engineering"],
     scoreWeight: 2,
+    isCurrentSkill: true,
   },
   JQuery: {
     type: "Platform",
@@ -171,11 +163,11 @@ export const SKILL_DATA = {
       2012: 0,
       2013: 60,
       2014: 100,
-      2015: 100,
       2016: 100,
-      2017: 0,
+      2018: 0,
     },
     domains: ["WebApp", "Software Engineering"],
+    scoreWeight: 1,
   },
   "HTML/CSS/Sass/Less": {
     type: "Language",
@@ -194,6 +186,8 @@ export const SKILL_DATA = {
       2019: 90,
     },
     domains: ["WebApp", "Software Engineering"],
+    scoreWeight: 2,
+    isCurrentSkill: true,
   },
   Java: {
     type: "Language",
@@ -213,6 +207,8 @@ export const SKILL_DATA = {
       2019: 70,
     },
     domains: ["WebApp", "Server", "Android", "Software Engineering"],
+    scoreWeight: 2,
+    isCurrentSkill: true,
   },
   "ReST/WebSockets": {
     type: "Platform",
@@ -233,6 +229,7 @@ export const SKILL_DATA = {
       2019: 90,
     },
     domains: ["WebApp", "Server", "Software Engineering"],
+    isCurrentSkill: true,
   },
   Spring: {
     type: "Platform",
@@ -263,6 +260,7 @@ export const SKILL_DATA = {
       2019: 65,
     },
     domains: ["Server", "Software Engineering"],
+    isCurrentSkill: true,
   },
   "c++": {
     type: "Language",
@@ -338,6 +336,7 @@ export const SKILL_DATA = {
       2019: 60,
     },
     domains: ["Server", "Software Engineering"],
+    isCurrentSkill: true,
   },
   Postgresql: {
     type: "Database",
@@ -353,6 +352,7 @@ export const SKILL_DATA = {
       2019: 45,
     },
     domains: ["Server", "Software Engineering"],
+    isCurrentSkill: true,
   },
   MySQL: {
     type: "Database",
@@ -371,6 +371,7 @@ export const SKILL_DATA = {
       2019: 80,
     },
     domains: ["Server", "Software Engineering"],
+    isCurrentSkill: true,
   },
   Linux: {
     type: "Environment",
@@ -393,6 +394,8 @@ export const SKILL_DATA = {
       2019: 90,
     },
     domains: ["Server", "Linux", "Software Engineering"],
+    skillWeight: 3.0,
+    isCurrentSkill: true,
   },
   Windows: {
     type: "Environment",
@@ -433,6 +436,8 @@ export const SKILL_DATA = {
       2019: 90,
     },
     domains: ["Process", "Software Engineering"],
+    skillWeight: 3.0,
+    isCurrentSkill: true,
   },
   "subversion (svn)": {
     type: "Source Control",
@@ -501,6 +506,7 @@ export const SKILL_DATA = {
       2019: 90,
     },
     domains: ["Process"],
+    isCurrentSkill: true,
   },
   "Atlassian, Phabricator, Arcanist": {
     type: "Project Management",
@@ -520,6 +526,7 @@ export const SKILL_DATA = {
       2019: 90,
     },
     domains: ["Process"],
+    isCurrentSkill: true,
   },
   "Agile/Kanban": {
     type: "Project Management",
@@ -538,5 +545,49 @@ export const SKILL_DATA = {
       2019: 80,
     },
     domains: ["Process"],
+    isCurrentSkill: true,
   },
 };
+
+export const SKILL_DATA = {};
+Object.keys(SKILL_DATA_WITH_GAPS).forEach(name => {
+  const skillDatum = SKILL_DATA_WITH_GAPS[name];
+  let { experience } = skillDatum;
+  // Fill in missing holes in data
+  const years = Object.keys(experience);
+  const minYear = Math.min(...years);
+  const maxYear = Math.max(...years);
+  let lastFoundYearIndex = 0;
+  for (let year = minYear + 1; year < maxYear; year++) {
+    if (experience[year] == null) {
+      const lastFoundYear = years[lastFoundYearIndex];
+      const nextFoundYear = years[lastFoundYearIndex + 1];
+      const deltaYears = nextFoundYear - lastFoundYear || 1;
+      const slope =
+        (experience[nextFoundYear] - experience[lastFoundYear]) / deltaYears;
+      const nextValue = Math.max(
+        0,
+        Math.min(
+          100,
+          experience[lastFoundYear] + slope * (year - lastFoundYear)
+        )
+      );
+      experience[year] = nextValue;
+      // console.log(
+      //   name,
+      //   lastFoundYear,
+      //   year,
+      //   nextFoundYear,
+      //   slope,
+      //   nextValue,
+      //   experience[nextFoundYear] - experience[lastFoundYear]
+      // );
+    } else {
+      lastFoundYearIndex += 1;
+    }
+  }
+  SKILL_DATA[name] = {
+    ...skillDatum,
+    experience,
+  };
+});

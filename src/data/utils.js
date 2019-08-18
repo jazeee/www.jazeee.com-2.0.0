@@ -1,6 +1,6 @@
 import { SKILL_DATA } from "./skill-data";
 import _ from "lodash";
-import { COLORS } from "./constants";
+import { getColor } from "../utils/colors";
 
 export class Skills {
   constructor() {
@@ -40,13 +40,29 @@ export class Skills {
     this.skillIndex = {};
     this.skillColors = {};
     this.skillNames.forEach((skillName, index) => {
-      this.skillColors[skillName] = COLORS[index % COLORS.length];
+      this.skillColors[skillName] = getColor(index);
       this.skillIndex[skillName] = index;
     });
   }
 
-  getSkillData = skillType => {
+  getSkillData = (skillType, options = {}) => {
+    const { minimumYearToInclude } = options;
     let skillData = SKILL_DATA;
+    if (minimumYearToInclude) {
+      skillData = Object.keys(skillData).reduce((accum, skill) => {
+        const skillDatum = skillData[skill];
+        const { experience } = skillDatum;
+        const filteredExperience = {};
+        Object.keys(experience)
+          .filter(year => year >= minimumYearToInclude)
+          .forEach(year => (filteredExperience[year] = experience[year]));
+        accum[skill] = {
+          ...skillDatum,
+          experience: filteredExperience,
+        };
+        return accum;
+      }, {});
+    }
     if (skillType != null) {
       skillData = _.pickBy(skillData, function(skill) {
         return skill.type === skillType;
