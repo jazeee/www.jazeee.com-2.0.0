@@ -1,15 +1,15 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "jazeee.com-website",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "description": "Jaz Singh Website as served on http://jazeee.com",
+  "version": "2.0.0",
+  "author": "Jaz Singh",
   "dependencies": {
     "@material-ui/core": "^4.1.3",
     "@material-ui/icons": "^4.2.1",
     "@material-ui/styles": "^4.1.2",
     "babel-plugin-styled-components": "^1.10.6",
-    "gatsby": "^2.13.4",
+    "gatsby": "2.10.5",
     "gatsby-image": "^2.2.4",
     "gatsby-plugin-lodash": "^3.1.0",
     "gatsby-plugin-manifest": "^2.2.1",
@@ -21,10 +21,13 @@
     "gatsby-source-filesystem": "^2.1.2",
     "gatsby-transformer-sharp": "^2.2.1",
     "lodash": "^4.17.11",
+    "plotly.js": "^1.49.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
+    "react-loadable": "^5.5.0",
+    "react-plotly.js": "^2.3.0",
     "styled-components": "^4.3.2"
   },
   "devDependencies": {
@@ -44,9 +47,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/jazeee/jazeee.com-2.0.0"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/jazeee/jazeee.com-2.0.0"
   }
 }
