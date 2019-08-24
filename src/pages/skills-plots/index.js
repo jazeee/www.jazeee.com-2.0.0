@@ -52,7 +52,7 @@ export const SkillsPlotWithChooser = () => {
           aria-haspopup="true"
           onClick={({ currentTarget }) => setAnchorEl(currentTarget)}
           variant="contained"
-          color="secondary"
+          color="primary"
           className={classNames.skillChooser}
         >
           {skillType}
@@ -85,7 +85,6 @@ export const SkillsPlotWithChooser = () => {
             component={ForwardRefLink}
             to="/skills-plots"
           >
-            {" "}
             Show All Skills
           </MenuItem>
         </Menu>

@@ -5,8 +5,10 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
+import Drawer from "@material-ui/core/Drawer";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "./link";
+import { SideBar } from "./side-bar";
 import { TargetBlankLink } from "./target-blank-link";
 import { GithubIcon } from "./icons/github-icon";
 import { LinkedInIcon } from "./icons/linked-in-icon";
@@ -29,10 +31,18 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export const Header = props => {
+  const [isSideBarOpen, setIsSideBarOpen] = React.useState(false);
   const { siteTitle } = props;
   const classes = useStyles();
   return (
     <div className={classes.root}>
+      <Drawer
+        anchor="left"
+        open={isSideBarOpen}
+        onClose={() => setIsSideBarOpen(false)}
+      >
+        <SideBar closeSideBar={() => setIsSideBarOpen(false)} />
+      </Drawer>
       <HideOnScroll>
         <AppBar>
           <Toolbar>
@@ -41,6 +51,9 @@ export const Header = props => {
               className={classes.menuButton}
               color="inherit"
               aria-label="Menu"
+              aria-controls="simple-menu"
+              aria-haspopup="true"
+              onClick={() => setIsSideBarOpen(true)}
             >
               <MenuIcon />
             </IconButton>

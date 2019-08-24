@@ -1,13 +1,17 @@
 import { red } from "@material-ui/core/colors";
 import { createMuiTheme } from "@material-ui/core/styles";
 
+// Also check `gatsby-config.js`
+export const PRIMARY_COLOR = "#2F2001";
+export const SECONDARY_COLOR = "#0094FF";
+
 export const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#2F2001",
+      main: PRIMARY_COLOR,
     },
     secondary: {
-      main: "#0094FF",
+      main: SECONDARY_COLOR,
     },
     error: {
       main: red.A400,
