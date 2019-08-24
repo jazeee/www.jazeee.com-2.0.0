@@ -3,10 +3,13 @@ import classNames from "./skills.module.css";
 import { skills } from "../../data/utils";
 import Plot from "react-plotly.js";
 import { getColor } from "../../utils/colors";
+import { useWindowDimensions } from "../../hooks/window-hooks";
 
 export const SkillsPlot = props => {
   const [highlightedSkillName, setHighlightedSkillName] = useState("");
-  const { skillType = "Language" } = props;
+  const { width } = useWindowDimensions();
+  const isNarrowWidth = width <= 480;
+  const { skillType = "Language", showTitle = true } = props;
   const subSkills = skills.getSkillData(skillType, {
     minimumYearToInclude: 2010,
   });
@@ -23,7 +26,8 @@ export const SkillsPlot = props => {
       return value * multiplier;
     });
     return {
-      name,
+      // Word wrap name at 20 characters
+      name: name,
       x: xValues,
       y: yValues,
       type: "bar",
@@ -65,7 +69,7 @@ export const SkillsPlot = props => {
       useResizeHandler={true}
       className={classNames.plot}
       layout={{
-        title: skillType,
+        title: showTitle ? skillType : undefined,
         autosize: true,
         xaxis: {
           title: "Year",
@@ -76,6 +80,7 @@ export const SkillsPlot = props => {
         },
         barmode: "stack",
         hovermode: "closest",
+        showlegend: !isNarrowWidth,
       }}
       onHover={highlightSkillName}
       onUnhover={() => setHighlightedSkillName("")}
