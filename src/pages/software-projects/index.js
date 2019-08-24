@@ -4,13 +4,9 @@ import Button from "@material-ui/core/Button";
 import { SOFTWARE_PROJECTS } from "../../data/software-projects-data";
 import styles from "./software-projects.module.css";
 import { GithubProject } from "../../components/projects/github-project";
-import { Link } from "../../components/link";
 import { Layout } from "../../components/layout";
 import { SEO } from "../../components/seo";
-
-const AllGithubProjectLinks = React.forwardRef((props, ref) => (
-  <Link innerRef={ref} {...props} />
-));
+import { ForwardRefLink } from "../../components/link";
 
 export const SoftwareProjects = () => (
   <Container className={styles.projects}>
@@ -21,7 +17,7 @@ export const SoftwareProjects = () => (
     <Container className={styles.actions}>
       <Button
         variant="contained"
-        component={AllGithubProjectLinks}
+        component={ForwardRefLink}
         to="/software-projects/all-github-projects"
       >
         All Github Projects
