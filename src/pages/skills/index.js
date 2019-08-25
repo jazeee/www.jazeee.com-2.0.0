@@ -3,6 +3,8 @@ import { Layout } from "../../components/layout";
 import { SEO } from "../../components/seo";
 import styles from "./skills.module.css";
 import { skills } from "../../data/utils";
+import { TargetBlankLink } from "../../components/target-blank-link";
+import Typography from "@material-ui/core/Typography";
 
 const webAppSkillNames = skills
   .getDomainSkillNames("Software Engineering")
@@ -12,16 +14,20 @@ export const Skills = () => (
   <div className={styles.aboutJaz}>
     <div className={styles.container}>
       <div className={styles.skillsHeaderOverlay}>
-        <h1>Full Stack Web Developer</h1>
-        <h4>Primary Developer Skills (Sorted by skill level)</h4>
+        <Typography variant="h5">Full Stack Web Developer</Typography>
+        <Typography variant="subtitle1">
+          Primary Developer Skills (Sorted by skill level)
+        </Typography>
         <ul>
           {webAppSkillNames.map(skillName => (
-            <li key={skillName}>{skillName}</li>
+            <li key={skillName}>
+              <Typography variant="body2">{skillName}</Typography>
+            </li>
           ))}
         </ul>
-        <a href="http://goo.gl/qWsPm" target="_blank" rel="noopener noreferrer">
-          Resume
-        </a>
+        <Typography variant="h6">
+          <TargetBlankLink href="http://goo.gl/qWsPm">Resume</TargetBlankLink>
+        </Typography>
       </div>
     </div>
   </div>

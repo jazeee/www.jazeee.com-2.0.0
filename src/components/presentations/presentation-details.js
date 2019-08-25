@@ -26,8 +26,10 @@ export const PresentationDetails = props => {
         {links.map(link => {
           const { name, url } = link;
           return (
-            <Button key={url} size="small" color="primary">
-              <TargetBlankLink href={url}>{name}</TargetBlankLink>
+            <Button key={url} size="small">
+              <TargetBlankLink color="secondary" href={url}>
+                {name}
+              </TargetBlankLink>
             </Button>
           );
         })}
