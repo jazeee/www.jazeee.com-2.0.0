@@ -13,7 +13,13 @@ export const PresentationDetails = props => {
   const { name, location, date, image, links } = presentation;
   return (
     <Card className={styles.presentation}>
-      <CardMedia className={styles.media} title={name} image={image} />
+      <CardMedia
+        component={TargetBlankLink}
+        href={links[0].url}
+        className={styles.media}
+        title={name}
+        image={image}
+      />
       <CardContent>
         <Typography gutterBottom variant="h5" component="h2">
           {name}
