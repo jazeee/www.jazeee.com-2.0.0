@@ -35,7 +35,7 @@ export const SideBar = props => {
               const isCurrentPath = location.pathname === path;
               return (
                 <ListItem
-                  className={isCurrentPath && classes.selectedLink}
+                  className={isCurrentPath ? classes.selectedLink : undefined}
                   key={name}
                   component={ForwardRefLink}
                   button
