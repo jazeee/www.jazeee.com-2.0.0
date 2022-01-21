@@ -5,7 +5,7 @@ import { getColor } from "../utils/colors";
 export class Skills {
   constructor() {
     this.data = [];
-    let latestYear = 2010;
+    let latestYear = 2012;
     for (let name in SKILL_DATA) {
       const skill = { name, ...SKILL_DATA[name] };
       this.data.push(skill);
